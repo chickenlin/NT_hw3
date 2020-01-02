@@ -113,18 +113,6 @@ int main(int argc,char **argv)
         return -1;
     }
 
-    /*if(pcap_compile(fp, &fcode, packet_filter, 1, netmask) <0)
-	{
-        fprintf(stderr, "\nUnable to compile the packet filter. Check the syntax");
-        return -1;
-    }
-
-    if (pcap_setfilter(fp, &fcode)<0)       //ignore packet that not ip
-    {
-        fprintf(stderr,"\nError setting the filter.\n");
-        return -1;
-    }*/
-
     memset(ans_count,0,sizeof(ans_count));
     pcap_freecode(&fcode);
     pcap_loop(fp, 0, dispatcher_handler, NULL);
